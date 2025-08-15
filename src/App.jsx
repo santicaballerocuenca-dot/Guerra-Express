@@ -8,7 +8,9 @@ const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import { initializeApp } from 'firebase/app';
+import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from 'firebase/auth';
 import { getFirestore, doc, getDoc, setDoc, onSnapshot, collection, query, updateDoc, arrayUnion } from 'firebase/firestore';
+
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
