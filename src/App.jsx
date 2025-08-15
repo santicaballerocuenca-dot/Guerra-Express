@@ -3,36 +3,29 @@ import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithCustomToken, signInAnonymously, onAuthStateChanged } from 'firebase/auth';
 import { getFirestore, doc, setDoc, onSnapshot, collection, getDocs, updateDoc, deleteDoc, arrayUnion } from 'firebase/firestore';
 
-// Comprobamos si las variables de entorno de Firebase están definidas
-const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import { initializeApp } from 'firebase/app';
 import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from 'firebase/auth';
 import { getFirestore, doc, getDoc, setDoc, onSnapshot, collection, query, updateDoc, arrayUnion } from 'firebase/firestore';
 
-
-// Your web app's Firebase configuration
+// Comprobamos si las variables de entorno de Firebase están definidas
+const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
 const firebaseConfig = {
-    apiKey: "AIzaSyBAMGkwLrCQbgnSYtrugNn17zPeV3zz6Ys",
-    authDomain: "resiclasiadatos.firebaseapp.com",
-    projectId: "resiclasiadatos",
-    storageBucket: "resiclasiadatos.firebasestorage.app",
+    apiKey: "AIzaSyB-BAfGkwL-rObqqS1TRuqlNo17zPeVVz26Y-s",
+    authDomain: "resislaciadatos.firebaseapp.com",
+    projectId: "resislaciadatos",
+    storageBucket: "resislaciadatos.firebase-storage.appspot.com",
     messagingSenderId: "740346277859",
-    appId: "1:740346277859:web:04ee0060e0daf01f07fad6"
+    appId: "1:740346277859:web:04ee8000be0daF01f97fdc5",
 };
-
-const firebaseApp = initializeApp(firebaseConfig);
-const db = getFirestore(firebaseApp);
-const app = firebaseApp;
-
 
 // Inicializar Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
 
-// Funciones auxiliares para la interfaz de usuario con iconos SVG en línea
+//  iones auxiliares para la interfaz de usuario con iconos SVG en línea
 const FactionIcon = ({ name }) => {
     switch (name) {
         case 'La Gian y la Ussr':
