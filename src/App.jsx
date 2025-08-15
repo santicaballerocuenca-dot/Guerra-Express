@@ -5,8 +5,25 @@ import { getFirestore, doc, setDoc, onSnapshot, collection, getDocs, updateDoc, 
 
 // Comprobamos si las variables de entorno de Firebase están definidas
 const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
-const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : '';
+import React, { useState, useEffect } from 'react';
+import './App.css';
+import { initializeApp } from 'firebase/app';
+import { getFirestore, doc, getDoc, setDoc, onSnapshot, collection, query, updateDoc, arrayUnion } from 'firebase/firestore';
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyBAMGkwLrCQbgnSYtrugNn17zPeV3zz6Ys",
+    authDomain: "resiclasiadatos.firebaseapp.com",
+    projectId: "resiclasiadatos",
+    storageBucket: "resiclasiadatos.firebasestorage.app",
+    messagingSenderId: "740346277859",
+    appId: "1:740346277859:web:04ee0060e0daf01f07fad6"
+};
+
+const firebaseApp = initializeApp(firebaseConfig);
+const db = getFirestore(firebaseApp);
+const app = firebaseApp;
+
 
 // Inicializar Firebase
 const app = initializeApp(firebaseConfig);
